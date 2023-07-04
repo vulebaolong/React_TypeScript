@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomeLayout from "./layouts/HomeLayout";
@@ -10,7 +9,6 @@ import Register from "./pages/Register/Register";
 import Detail from "./pages/Detail/Detail";
 
 function App() {
-    const [count, setCount] = useState(0);
 
     return (
         <>
@@ -23,7 +21,7 @@ function App() {
                     <Route path="carts" element={<Carts />} />
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
-                    <Route path="detail" element={<Detail />} />
+                    <Route path="detail/:id" element={<Detail />} />
                 </Route>
 
                 {/* OTHER */}
