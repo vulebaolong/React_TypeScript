@@ -85,31 +85,23 @@ export default productSlice.reducer;
 //getAllProductMID
 export const getAllProductMID = () => {
     return async (dispatch: DispatchType) => {
-        try {
-            const { data, status } = await productApi.getAllProduct();
-            console.log("getAllProductMID", { data, status });
+        const { data, status } = await productApi.getAllProduct();
+        console.log("getAllProductMID", { data, status });
 
-            const result: ProductModel[] = data.content;
+        const result: ProductModel[] = data.content;
 
-            const action: PayloadAction<ProductModel[]> = getAllProductREDU(result);
-            dispatch(action);
-        } catch (error) {
-            console.log(error);
-        }
+        const action: PayloadAction<ProductModel[]> = getAllProductREDU(result);
+        dispatch(action);
     };
 };
 
 //getOneProductMID
 export const getOneProductMID = (id: string) => {
     return async (dispatch: DispatchType) => {
-        try {
-            const { data, status } = await productApi.getOneProduct(id);
-            console.log("getOneProductMID", { data, status });
-            const result: ProductDetailModel = data.content;
-            const action:PayloadAction<ProductDetailModel> = getOneProductREDU(result)
-            dispatch(action);
-        } catch (error) {
-            console.log(error);
-        }
+        const { data, status } = await productApi.getOneProduct(id);
+        console.log("getOneProductMID", { data, status });
+        const result: ProductDetailModel = data.content;
+        const action:PayloadAction<ProductDetailModel> = getOneProductREDU(result)
+        dispatch(action);
     };
 };

@@ -18,3 +18,11 @@
     background-color: rgba(100, 116, 139, 0.502);
 }
 /* SCROLLBAR - end */
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 0.5px;
+background: #eeeeee45;
+}
