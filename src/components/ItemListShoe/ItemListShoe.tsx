@@ -1,11 +1,11 @@
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import {  ProductModel, RelatedProduct } from "../../redux/slices/productSlice";
+import { ProductModel, RelatedProduct } from "../../redux/slices/productSlice";
 
 type Props = {
-    shoe:ProductModel |RelatedProduct
+    shoe: ProductModel | RelatedProduct;
 };
-function ItemListShoe({shoe}: Props) {
-    const navigate:NavigateFunction = useNavigate()
+function ItemListShoe({ shoe }: Props) {
+    const navigate: NavigateFunction = useNavigate();
     return (
         <div className="col-12 col-lg-6 col-xl-4 ">
             <div className="card p-3 h-100 justify-content-between gap-2">
@@ -18,7 +18,7 @@ function ItemListShoe({shoe}: Props) {
                     <button
                         onClick={() => {
                             // handleViewDetailRedux(shoe);
-                            navigate(`/detail/${shoe.id}`)
+                            navigate(`/detail/${shoe.id}`);
                         }}
                         className="btn btn-primary"
                     >

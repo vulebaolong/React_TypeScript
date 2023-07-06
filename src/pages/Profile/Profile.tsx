@@ -73,12 +73,13 @@ function Profile({}: Props) {
                     <div className="card" style={{ height: "100%" }}>
                         <div className="card-body text-center">
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                src={profile?.avatar}
                                 alt="avatar"
                                 className="rounded-circle img-fluid"
                                 style={{ width: 150 }}
                             />
-                            <h5 className="my-3">John Smith</h5>
+                            <h5 className="my-3">{profile?.name}</h5>
                             <p className="text-muted mb-1">Full Stack Developer</p>
                             <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
                         </div>
@@ -87,15 +88,7 @@ function Profile({}: Props) {
                 <div className="col-8">
                     <div className="card" style={{ height: "100%" }}>
                         <div className="card-body">
-                            <Form
-                                name="basic"
-                                layout="vertical"
-                                initialValues={initialValues}
-                                onFinish={onFinish}
-                                onFinishFailed={onFinishFailed}
-                                autoComplete="off"
-                                form={form}
-                            >
+                            <Form name="basic" layout="vertical" initialValues={initialValues} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off" form={form}>
                                 <div className="row">
                                     <div className="col-6">
                                         {/* HỌ VÀ TÊN */}
@@ -105,8 +98,7 @@ function Profile({}: Props) {
                                             rules={[
                                                 {
                                                     required: true,
-                                                    message:
-                                                        "Xin vui lòng nhập trường này",
+                                                    message: "Xin vui lòng nhập trường này",
                                                 },
                                                 {
                                                     pattern: /^[\p{L}\s]+$/u,
@@ -114,12 +106,7 @@ function Profile({}: Props) {
                                                 },
                                             ]}
                                         >
-                                            <Input
-                                                id="name"
-                                                onFocus={onFocus}
-                                                onBlur={onBlur}
-                                                bordered={border.name}
-                                            />
+                                            <Input id="name" onFocus={onFocus} onBlur={onBlur} bordered={border.name} />
                                         </Form.Item>
                                     </div>
                                     <div className="col-6">
@@ -130,8 +117,7 @@ function Profile({}: Props) {
                                             rules={[
                                                 {
                                                     required: true,
-                                                    message:
-                                                        "Xin vui lòng nhập trường này",
+                                                    message: "Xin vui lòng nhập trường này",
                                                 },
                                                 {
                                                     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -139,12 +125,7 @@ function Profile({}: Props) {
                                                 },
                                             ]}
                                         >
-                                            <Input
-                                                id="email"
-                                                onFocus={onFocus}
-                                                onBlur={onBlur}
-                                                bordered={border.email}
-                                            />
+                                            <Input id="email" onFocus={onFocus} onBlur={onBlur} bordered={border.email} />
                                         </Form.Item>
                                     </div>
                                 </div>
@@ -157,8 +138,7 @@ function Profile({}: Props) {
                                             rules={[
                                                 {
                                                     required: true,
-                                                    message:
-                                                        "Xin vui lòng nhập trường này",
+                                                    message: "Xin vui lòng nhập trường này",
                                                 },
                                                 {
                                                     pattern: /^\d{10,}$/,
@@ -166,12 +146,7 @@ function Profile({}: Props) {
                                                 },
                                             ]}
                                         >
-                                            <Input
-                                                id="phone"
-                                                onFocus={onFocus}
-                                                onBlur={onBlur}
-                                                bordered={border.phone}
-                                            />
+                                            <Input id="phone" onFocus={onFocus} onBlur={onBlur} bordered={border.phone} />
                                         </Form.Item>
                                     </div>
                                     <div className="col-6">
@@ -182,17 +157,11 @@ function Profile({}: Props) {
                                             rules={[
                                                 {
                                                     required: true,
-                                                    message:
-                                                        "Xin vui lòng nhập trường này",
+                                                    message: "Xin vui lòng nhập trường này",
                                                 },
                                             ]}
                                         >
-                                            <Input.Password
-                                                id="password"
-                                                onFocus={onFocus}
-                                                onBlur={onBlur}
-                                                bordered={border.password}
-                                            />
+                                            <Input.Password id="password" onFocus={onFocus} onBlur={onBlur} bordered={border.password} />
                                         </Form.Item>
                                     </div>
                                 </div>
@@ -205,8 +174,7 @@ function Profile({}: Props) {
                                             rules={[
                                                 {
                                                     required: true,
-                                                    message:
-                                                        "Xin vui lòng nhập trường này",
+                                                    message: "Xin vui lòng nhập trường này",
                                                 },
                                             ]}
                                         >
@@ -220,11 +188,7 @@ function Profile({}: Props) {
                                 <div className="row">
                                     <div className="col-6">
                                         <Form.Item>
-                                            <Button
-                                                type="primary"
-                                                htmlType="submit"
-                                                style={{ width: "100%" }}
-                                            >
+                                            <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
                                                 Cập nhật
                                             </Button>
                                         </Form.Item>

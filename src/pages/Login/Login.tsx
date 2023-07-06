@@ -1,16 +1,21 @@
-import { useForm, SubmitHandler } from "react-hook-form";
 import { navigate } from "../../App";
 import { useDispatch } from "react-redux";
 import { Button, Checkbox, Form, Input } from "antd";
 import { DispatchType } from "../../redux/store";
 import { loginMID } from "../../redux/slices/userSlice";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
+
 interface IvalueSend {
     email: string;
     password: string;
 }
 
 type Props = {};
+
 function Login({}: Props) {
+    const responseFacebook = (response: any) => {
+        console.log(response);
+    };
     const initialValues: IvalueSend = {
         email: "khaido@gmail.com",
         password: "123",
@@ -30,14 +35,7 @@ function Login({}: Props) {
     };
     return (
         <>
-            <Form
-                name="basic"
-                layout="vertical"
-                initialValues={initialValues}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-                autoComplete="off"
-            >
+            <Form name="basic" layout="vertical" initialValues={initialValues} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
                 {/* EMAIL */}
                 <Form.Item
                     label="Email"
@@ -54,11 +52,7 @@ function Login({}: Props) {
                 </Form.Item>
 
                 {/* MẬT KHẨU */}
-                <Form.Item
-                    label="Mật khẩu"
-                    name="password"
-                    rules={[{ required: true, message: "Xin vui lòng nhập trường này" }]}
-                >
+                <Form.Item label="Mật khẩu" name="password" rules={[{ required: true, message: "Xin vui lòng nhập trường này" }]}>
                     <Input.Password />
                 </Form.Item>
 
@@ -88,9 +82,17 @@ function Login({}: Props) {
 
             {/* Register buttons */}
             <div className="text-center">
-                <button type="button" className="btn btn-link btn-floating mx-1">
-                    <i className="fab fa-facebook-f" />
-                </button>
+                <FacebookLogin
+                    appId="844631370420415"
+                    autoLoad={false}
+                    fields="name,email,picture"
+                    callback={responseFacebook}
+                    render={(renderProps: any) => (
+                        <button onClick={renderProps.onClick} type="button" className="btn btn-link btn-floating mx-1">
+                            <i className="fab fa-facebook-f" />
+                        </button>
+                    )}
+                />
                 <button type="button" className="btn btn-link btn-floating mx-1">
                     <i className="fab fa-google" />
                 </button>
